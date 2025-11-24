@@ -1,0 +1,518 @@
+/* CSS RESET */
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  /* 4. Add accessible line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+/*
+  10. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/* CSS RESET */
+
+:root {
+  /* COLORS */
+
+  --reaction-item: #fff6f7;
+  --memory-item: #fffaf4;
+  --verbal-item: #f2fdf9;
+  --visual-item: #f4f4fe;
+
+  --red: hsla(0, 100%, 67%, 0.785);
+  --orangey-yellow: hsl(39, 100%, 56%);
+  --green-teal: hsl(166, 100%, 37%);
+  --cobalt-blue: hsl(234, 85%, 45%);
+  /* 
+  --red-background:;
+  --orangey-yellow -background:; */
+
+  /* COLORS-GRADIENTS */
+
+  --gradient-main-bottom: #342eea;
+  --gradient-main-top: #6743ff;
+  --gradient-circle-top: #4a23cc;
+  --gradient-circle-bottom: #4835f1;
+
+  /* COLORS - NEUTRAL */
+
+  --white: hsl(0, 0%, 100%);
+  --pale-blue: hsl(221, 100%, 96%);
+  --light-lavender: hsl(241, 100%, 89%);
+  --dark-gray-blue: hsl(224, 30%, 27%);
+
+  /* FONT PROPERTIES */
+  /* Hanken Grotesk
+   */
+  --default-font-size: 18px;
+  --font-family: "Hanken Grotesk", sans-serif;
+
+  --circle-dimensions: 150px;
+}
+
+/* 
+- Mobile: 375px
+- Desktop: 1440px
+*/
+
+/* Mobile First */
+
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--pale-blue);
+  font-family: var(--font-family);
+}
+
+/* body > * {
+  flex: 1;
+} */
+
+/*MAIN WRAPPER  */
+.component-wrapper {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  justify-content: start;
+  align-items: stretch;
+  gap: 32px;
+}
+/* RESULTS + SUMMARY MUTUALS */
+
+/* .results-section,
+.summary-section {
+  flex-basis: 50%;
+} */
+
+/* RESULTS SECTION - TOP */
+.results-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px;
+  gap: 32px;
+  border-radius: 0px 0px 40px 40px;
+  width: 100%;
+
+  background-image: linear-gradient(
+    to bottom,
+    var(--gradient-main-top),
+    var(--gradient-main-bottom)
+  );
+
+  color: var(--white);
+  /* flex-basis:  40%; */
+}
+
+.results-section h1 {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.796);
+}
+
+.result-circle {
+  border-radius: 50%;
+  height: var(--circle-dimensions);
+  width: var(--circle-dimensions);
+
+  background-image: linear-gradient(
+    to bottom,
+    var(--gradient-circle-top),
+    var(--gradient-circle-bottom)
+  );
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.result-circle h2 {
+  font-size: 4.3rem;
+  height: fit-content;
+}
+
+.result-circle small {
+  margin-top: -15px;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.796);
+  font-weight: 400;
+}
+
+.result-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.result-message h2 {
+  font-size: 1.8rem;
+}
+
+.result-message p {
+  width: 31ch;
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.796);
+}
+
+/*SUMMARY SECTION - BOTTOM */
+.summary-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.3rem;
+  border-radius: 16px;
+  padding: 40px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.summary-section h2 {
+  align-self: center;
+  justify-self: center;
+  font-size: 1.3rem;
+  font-weight: 500;
+
+  min-width: 100%;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* margin: 0 auto; */
+  min-width: 100%;
+  background-color: azure;
+  padding: 1.4rem;
+
+  border-radius: 12px;
+
+  text-align: center;
+}
+
+.summary-title {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.summary-item img,
+.summary-item h3 {
+  display: inline-block;
+
+  /* Finally a use case that fucking works
+  There's a God! */
+  vertical-align: middle;
+  font-size: 1.3rem;
+}
+
+.summary-item img {
+  width: 25px;
+  height: auto;
+}
+
+.summary-score {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.summary-score span {
+  color: var(--dark-gray-blue);
+}
+
+/*  */
+.summary-button {
+  min-width: 100%;
+  padding: 1.3rem;
+  border-radius: 50px;
+  outline: none;
+  border: none;
+  background-color: var(--dark-gray-blue);
+  color: var(--white);
+  font-family: var(--font-family);
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+.summary-reaction {
+  color: var(--red);
+  background-color: var(--reaction-item);
+}
+
+.summary-memory {
+  color: var(--orangey-yellow);
+  background-color: var(--memory-item);
+}
+
+.summary-verbal {
+  color: var(--green-teal);
+  background-color: var(--verbal-item);
+}
+
+.summary-visual {
+  color: var(--cobalt-blue);
+  background-color: var(--visual-item);
+}
+
+@media (width >= 820px) {
+  .body {
+    display: grid;
+    place-content: center;
+  }
+  .component-wrapper {
+    display: flex;
+
+    flex-direction: row;
+    /* justify-content: space-between; */
+    align-items: stretch;
+    gap: 0px;
+    width: min(70%, 850px);
+    height: 500px;
+    /* border: 1px solid red; */
+    background-color: var(--white);
+    border-radius: 40px;
+  }
+
+  .results-section {
+    /* text-align: center; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+    gap: 32px;
+    border-radius: 40px 40px 40px 40px;
+    width: 100%;
+
+    background-image: linear-gradient(
+      to bottom,
+      var(--gradient-main-top),
+      var(--gradient-main-bottom)
+    );
+
+    color: var(--white);
+    /* flex-basis:  40%; */
+  }
+
+  .results-section h1 {
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.796);
+  }
+
+  .result-circle {
+    border-radius: 50%;
+    height: var(--circle-dimensions);
+    width: var(--circle-dimensions);
+
+    background-image: linear-gradient(
+      to bottom,
+      var(--gradient-circle-top),
+      var(--gradient-circle-bottom)
+    );
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .result-circle h2 {
+    font-size: 4.3rem;
+    height: fit-content;
+  }
+
+  .result-circle small {
+    margin-top: -15px;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.796);
+    font-weight: 400;
+  }
+
+  .result-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .result-message h2 {
+    font-size: 1.8rem;
+  }
+
+  .result-message p {
+    width: 20ch;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.796);
+  }
+
+  /*SUMMARY SECTION - BOTTOM */
+  .summary-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    border-radius: 16px;
+    width: 100%;
+  }
+
+  .summary-section h2 {
+    align-self: self-start;
+    justify-self: center;
+    font-size: 1.3rem;
+    font-weight: 500;
+
+    min-width: 50%;
+  }
+
+  .summary-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: azure;
+    padding: 0.8rem;
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .summary-title {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .summary-item img,
+  .summary-item h3 {
+    display: inline-block;
+
+    /* Finally a use case that fucking works
+  There's a God! */
+    vertical-align: middle;
+    font-size: 1rem;
+  }
+
+  .summary-item img {
+    width: 25px;
+    height: auto;
+  }
+
+  .summary-score {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  .summary-score span {
+    color: var(--dark-gray-blue);
+  }
+
+  /*  */
+  .summary-button {
+    min-width: 100%;
+    padding: 0.8rem;
+    border-radius: 50px;
+    outline: none;
+    border: none;
+    background-color: var(--dark-gray-blue);
+    color: var(--white);
+    font-family: var(--font-family);
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+
+  .summary-reaction {
+    color: var(--red);
+    background-color: var(--reaction-item);
+  }
+
+  .summary-memory {
+    color: var(--orangey-yellow);
+    background-color: var(--memory-item);
+  }
+
+  .summary-verbal {
+    color: var(--green-teal);
+    background-color: var(--verbal-item);
+  }
+
+  .summary-visual {
+    color: var(--cobalt-blue);
+    background-color: var(--visual-item);
+  }
+}
